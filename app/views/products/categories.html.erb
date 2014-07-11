@@ -1,9 +1,21 @@
-<h1>Products#categories</h1>
-<p>Find me in app/views/products/categories.html.erb</p>
-
-<% @product_categories.each do |category| %>
-
-<%= category.name %>
-<%= image_tag(category.image.path) %>
-<hr>
-<% end %>
+<% @page_title = 'Catalogue' %>
+<div class="categories">
+  <ul>
+    <% @product_categories.each do |category|  %>
+      <li>
+        <div class="img">
+          <% if category.image ? %>
+            <%= image_tag(category.image.path) %>
+            <br>
+            <h4>
+            <%= link_to category.name, products_path(category.permalink) %>
+            </h4>
+            <p>
+              <%= category.description %>
+            </p>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

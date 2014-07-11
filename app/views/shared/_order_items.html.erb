@@ -1,0 +1,99 @@
+<table class="orderItems">
+  <thead>
+    <tr>
+      <td>
+        Qty
+      </td>
+      <td>
+        Item
+      </td>
+      <td>
+        Price
+      </td>
+      <td>
+        <%= Shoppe.settings.tax_name %>
+      </td>
+      <td>
+        Sub-Total
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <% order.order_items.each do |item| %>
+      <tr>
+        <% unless defined?(readonly) %>
+          <td class="quantity">
+            <span>
+              <%= link_to "+", adjust_basket_item_quantity_path(item.id), :method => :post, :class => 'ajax'%>
+              <%= link_to "-", adjust_basket_item_quantity_path(item.id), :method => :delete, :class => 'ajax' %>
+            </span>
+            <%= item.quantity %>
+          </td>
+        <% end %>
+
+        <td class="product">
+          <%= item.ordered_item.full_name %>
+          <% unless defined?(readonly) %>
+            <%= link_to "Delete", remove_basket_item_path(item), :method => :delete, :class => 'delete ajax' %>
+          <% end %>
+        </td>
+        <td class="money price">
+          <%= number_to_currency(item.sub_total)  %>
+        </td>
+        <td class="money tax">
+          <%= number_to_currency(item.tax_amount)  %>
+        </td>
+        <td class="money total">
+          <%= number_to_currency(item.total)  %>
+        </td>
+      </tr>
+    <% end %> <!-- end of items-->
+  </tbody>
+  <tfoot>
+    <% if order.delivery_service ? %>
+      <tr class ="delivery">
+        <td class="method">
+          <% if defined?(readonly) %>
+            <%= order.delivery_service.name %>
+          <% else %>
+            <% form_tag change_delivery_service_path do%>
+              <%= select_tag 'delivery_service', options_from_collection_for_select(order.available_delivery_services, :id, :name, order.delivery_service.id) %>
+            <% end %>
+          <% end %>
+        </td>
+        <td class="money">
+          <%= number_to_currency(order.delivery_price) %>
+        </td>
+      </tr>
+    <% end %>
+    <tr class="subtotal">
+      <td>
+        Total (excluding <%= Shoppe.settings.tax_name %>)
+      </td>
+      <td class ="money">
+        <%= number_to_currency(order.total_before_tax)  %>
+      </td>
+
+    </tr>
+    <tr class="tax">
+      <td>
+        <%= Shoppe.settings.tax_name %>
+      </td>
+      <td class ="money">
+        <%= number_to_currency(order.tax)  %>
+      </td>
+
+    </tr>
+    <tr class="total">
+      <td>
+        Total
+      </td>
+      <td class="money">
+        <%= number_to_currency(order.total) %>
+      </td>
+
+    </tr>
+
+  </tfoot>
+
+</table>

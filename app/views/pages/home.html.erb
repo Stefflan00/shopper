@@ -1,6 +1,11 @@
-<% @products.each do |product| %>
 
-<%= product.name %>
-<%= image_tag(product.default_image.path) %>
-<%= link_to product.name, "#"%>
-<% end %>
+<% @page_title = 'Welcome' %>
+<div class="home">
+  <p class="browse">
+    <%= link_to "Browse our whole catalogue", catalogue_path %>
+  </p>
+  <h2>
+    Introducing our featured products
+  </h2>
+  <%= render partial: 'shared/product_list', :products => @products.includes(:default_image) %>
+</div>
