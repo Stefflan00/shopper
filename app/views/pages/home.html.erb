@@ -1,0 +1,6 @@
+<% @products.each do |product| %>
+
+<%= product.name %>
+<%= image_tag(product.default_image.path) %>
+<%= link_to product.name, "#"%>
+<% end %>
