@@ -3,8 +3,8 @@
   <ul>
     <% @product_categories.each do |category|  %>
       <li>
-        <div class="img">
-          <% if category.image ? %>
+        <div class="thumbnail">
+          <% if category.image %>
             <%= image_tag(category.image.path) %>
             <br>
             <h4>

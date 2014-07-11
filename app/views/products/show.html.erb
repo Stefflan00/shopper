@@ -1,7 +1,9 @@
 <% @page_title = @product.name + " - " + @product.product_category.name %>
 <div class="product">
   <% if @product.default_image %>
-    <%= image_tag(@product.default_image.path) %>
+    <div class="thumbnail">
+      <%= image_tag(@product.default_image.path) %>
+    </div>
     <h2>
       <%= @product.name %>
     </h2>
