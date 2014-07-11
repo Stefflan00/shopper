@@ -86,7 +86,7 @@
               <%= link_to "What's in the box?" %>
               <div class="in_the_box">
                 <h3>What's in the box?</h3>
-                <%= @product.in_the_box%>
+                <%= markdown(@product.in_the_box) %>
               </div>
             </li>
           <% end %><!--end unless box blank -->
@@ -114,6 +114,6 @@
     </table> <!--end attributes -->
   <% end %><!--end unless -->
   <div class="description">
-    <%= @product.description%>
+    <%= markdown(@product.description) %>
   </div> <!--end description -->
 </div> <!-- -->
