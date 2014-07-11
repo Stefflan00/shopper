@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+
   before_filter(:except => :status) { redirect_to root_path unless has_order? }
 
   def status
@@ -128,4 +129,5 @@ class OrdersController < ApplicationController
       end
     end
   end
+
 end

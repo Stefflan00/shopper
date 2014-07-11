@@ -50,7 +50,7 @@
     <% end %> <!-- end of items-->
   </tbody>
   <tfoot>
-    <% if order.delivery_service ? %>
+    <% if order.delivery_service %>
       <tr class ="delivery">
         <td class="method">
           <% if defined?(readonly) %>

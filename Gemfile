@@ -7,6 +7,7 @@ gem 'shoppe', '1.0.1'
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem 'twitter-bootstrap-rails', '~> 2.2.8'
+gem 'faker'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
