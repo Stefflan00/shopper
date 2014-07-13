@@ -11,12 +11,15 @@
   </p>
   <h3>Review the products in your shopping bag</h3>
   <%= render partial: 'shared/order_items', :order => @order %>
-  <% unless @order.delivery_required? && @order.delivery_service.nil? %>
+
+<% unless @order.delivery_required? && @order.delivery_service.nil? %>
+  <div id="deliverypossible">
     <h3>Complete your details below to complete your order</h3>
-    <% form_for @order, :url => checkout_path, :html => {:class => 'checkout disableable'} do |f| %>
+    <%= form_for @order, :url => checkout_path, :html => {:class => 'checkout disableable'} do |f| %>
       <%= f.error_messages %>
+
       <div class="customer">
-        <% field_set_tag do %>
+        <%= field_set_tag do %>
           <dl>
             <dt><%= f.label :first_name, "Name", :class => 'req'  %></dt>
             <dd class="name">
@@ -37,7 +40,8 @@
             <dd><%= f.text_field :phone_number  %></dd>
           </dl>
         <% end %><!--end fieldset 1 -->
-        <% field_set_tag do %>
+
+        <%= field_set_tag do %>
           <dl id="">
             <dt><%= f.label :billing_address1, "Billing Address", :class => 'req' %></dt>
             <dd><%= f.text_field :billing_address1, :placeholder => "Line 1" %></dd>
@@ -68,10 +72,13 @@
       </p>
 
     <% end %><!--end form_for -->
+  </div><!--end of tag delivery possible -->
   <% else %>
     <p>
       Please call us to place this order.
     </p>
   <% end %><!--end unless @order.delivery_required? -->
+
+
 
 </div>

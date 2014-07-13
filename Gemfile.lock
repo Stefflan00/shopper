@@ -43,7 +43,7 @@ GEM
     dynamic_form (1.1.4)
     erubis (2.7.0)
     execjs (2.2.1)
-    faker (1.1.2)
+    faker (1.4.1)
       i18n (~> 0.5)
     haml (4.0.5)
       tilt
@@ -59,7 +59,7 @@ GEM
     kaminari (0.15.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    less (2.5.0)
+    less (2.5.1)
       commonjs (~> 0.2.7)
     less-rails (2.5.0)
       actionpack (>= 3.1)
@@ -106,6 +106,7 @@ GEM
       polyamorous (~> 1.0.0)
     rdoc (4.1.1)
       json (~> 1.4)
+    redcarpet (3.1.2)
     ref (1.0.5)
     sass (3.2.19)
     sass-rails (4.0.3)
@@ -174,6 +175,7 @@ DEPENDENCIES
   less-rails
   pg
   rails (= 4.1.1)
+  redcarpet
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   shoppe (= 1.0.1)
