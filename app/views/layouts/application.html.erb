@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= @page_title %> - <%= Shoppe.settings.store_name  %></title>
+    <% shoppe_stripe_javascript %>
 
     <%= csrf_meta_tags %>
 
@@ -64,6 +65,9 @@
         <div class="row">
           <div class="span9">
             <%= bootstrap_flash %>
+            <% flash.each do |name, msg| -%>
+              <%= content_tag :div, msg, class: name %>
+            <% end %>
             <%= yield %>
           </div>
           <div class="span3">

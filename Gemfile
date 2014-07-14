@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 gem 'shoppe', '1.0.1'
+gem 'shoppe-stripe', :git => 'https://github.com/Stefflan00/stripe' ,:require => 'shoppe/stripe'
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem 'twitter-bootstrap-rails', '~> 2.2.8'

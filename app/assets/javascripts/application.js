@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require shoppe/stripe/form_handler
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks

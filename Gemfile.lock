@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/Stefflan00/stripe
+  revision: 8b90c093d9345b4526329917d6241222ae65d01b
+  specs:
+    shoppe-stripe (1.2.1)
+      coffee-rails (~> 4.0.0)
+      shoppe (~> 1.0.1)
+      stripe (~> 1.8.7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -71,6 +80,7 @@ GEM
     mime-types (1.25.1)
     minitest (5.4.0)
     multi_json (1.10.1)
+    netrc (0.7.7)
     nifty-attachments (1.0.1)
     nifty-dialog (1.0.6)
     nifty-key-value-store (1.0.1)
@@ -108,6 +118,9 @@ GEM
       json (~> 1.4)
     redcarpet (3.1.2)
     ref (1.0.5)
+    rest-client (1.7.1)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -142,6 +155,9 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    stripe (1.8.8)
+      multi_json (>= 1.0.4, < 2)
+      rest-client (~> 1.4)
     therubyracer (0.12.1)
       libv8 (~> 3.16.14.0)
       ref
@@ -179,6 +195,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   shoppe (= 1.0.1)
+  shoppe-stripe!
   spring
   therubyracer
   turbolinks

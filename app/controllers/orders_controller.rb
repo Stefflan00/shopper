@@ -102,7 +102,11 @@ class OrdersController < ApplicationController
   def payment
     @order = Shoppe::Order.find(current_order.id)
     if request.patch?
-      redirect_to checkout_confirmation_path
+      if @order.accept_stripe_token(params[:stripe_token])
+        redirect_to checkout_confirmation_path
+      else
+        flash.now[:notice] = "Could not exchange Stripe token. Please try again."
+      end
     end
   end
 
