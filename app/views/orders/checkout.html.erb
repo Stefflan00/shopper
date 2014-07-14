@@ -1,5 +1,5 @@
 <% @page_title = 'Checkout' %>
-<%= render partial: 'checkout_sidebar' %>
+<%= render 'checkout_sidebar' %>
 <div class="checkout">
   <p class="secure">
     Secure connection
@@ -10,7 +10,7 @@
     we'll get your products shipped to you as quickly as we can.
   </p>
   <h3>Review the products in your shopping bag</h3>
-  <%= render partial: 'shared/order_items', :order => @order %>
+  <%= render 'shared/order_items', :order => @order %>
 
 <% unless @order.delivery_required? && @order.delivery_service.nil? %>
   <div id="deliverypossible">
